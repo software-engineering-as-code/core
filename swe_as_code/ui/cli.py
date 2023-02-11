@@ -14,23 +14,36 @@
 
 import typed_argparse as tap
 
-from pathlib import Path
-
-class InitArgs(tap.TypedArgs):
-    root_dir: Path = tap.arg(help="The directory to initialize.")
-
-def initialize_workspace(args: InitArgs) -> None:
-    print("Initialize")
+from ._args import BuildArgs, CheckArgs, FormatArgs, InitArgs
+from ._commands import build_workspace, check_workspace, format_workspace, initialize_workspace
 
 def main() -> None:
     tap.Parser(
         tap.SubParserGroup(
             tap.SubParser(
+                "build",
+                BuildArgs,
+                help="Build the workspace into viewable artifacts.",
+            ),
+            tap.SubParser(
+                "check",
+                CheckArgs,
+                help="Check the workspace for correctness and consistency.",
+            ),
+            tap.SubParser(
+                "format",
+                FormatArgs,
+                help="Format the workspace to a uniform representation.",
+            ),
+            tap.SubParser(
                 "init",
                 InitArgs,
-                help="Initialize a new workspace."
+                help="Initialize a new workspace.",
             ),
         )
     ).bind(
+        build_workspace,
+        check_workspace,
+        format_workspace,
         initialize_workspace,
     ).run()
