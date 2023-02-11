@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Copyright 2023 Software-Engineering-as-Code
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,10 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import typed_argparse as tap
+ROOT_DIR=$(dirname $(dirname ${BASH_SOURCE}))
 
-from swe_as_code.lib.doit import doit
+echo "########################"
+echo "Linting code with: black"
+echo "########################"
+black ${ROOT_DIR} --check
 
+#echo "Linting code with: flake8"
+#flake8 ${ROOT_DIR}
 
-def main() -> None:
-    print(f"SWE: {doit(10)}")
+echo "#######################"
+echo "Linting code with isort"
+echo "#######################"
+isort ${ROOT_DIR} --check
+
+echo "######################"
+echo "Linting code with mypy"
+echo "######################"
+mypy ${ROOT_DIR} --check

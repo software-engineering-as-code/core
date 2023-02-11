@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Copyright 2023 Software-Engineering-as-Code
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,10 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import typed_argparse as tap
+ROOT_DIR=$(dirname $(dirname ${BASH_SOURCE}))
+VENV_DIR="${ROOT_DIR}/venv"
 
-from swe_as_code.lib.doit import doit
+echo "Creating Python virtual environment in: ${VENV_DIR}"
+python3 -m venv ${VENV_DIR}
 
-
-def main() -> None:
-    print(f"SWE: {doit(10)}")
+echo "Installing package in editable mode: swe_as_code"
+pip install -e ${ROOT_DIR}[test,lint]

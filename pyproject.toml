@@ -6,16 +6,28 @@ build-backend = "setuptools.build_meta"
 name = "swe_as_code"
 version = "0.0.1"
 dependencies = [
-    "typed_argparse"
+    "typed_argparse",
 ]
+
+[project.optional-dependencies]
+test = [
+  "coverage",
+  "pytest",
+]
+lint = [
+  "black",
+  "flake8",
+  "isort",
+]
+
+[project.scripts]
+swe = "swe_as_code.ui.cli:main"
+
+[pytest]
+testpaths = "tests"
 
 [tool.black]
 line-length = 100
 
 [tool.isort]
 profile = "black"
-
-[tool.pytest.ini_options]
-addopts = [
-    "--import-mode=importlib",
-]
