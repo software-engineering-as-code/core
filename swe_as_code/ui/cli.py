@@ -15,7 +15,13 @@
 import typed_argparse as tap
 
 from ._args import BuildArgs, CheckArgs, FormatArgs, InitArgs
-from ._commands import build_workspace, check_workspace, format_workspace, initialize_workspace
+from ._commands import (
+    build_workspace,
+    check_workspace,
+    format_workspace,
+    initialize_workspace,
+)
+
 
 def main() -> None:
     tap.Parser(
