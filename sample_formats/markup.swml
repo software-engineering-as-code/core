@@ -1,0 +1,34 @@
+# Heading
+
+In this section we are referring to requirement @REQ-SW-001. **bold**, _underline_, /italic/
+
+{table} [alignment=(left,left,center), width=(10,20,70)]
+  {heading}
+    - dsfdsfksjdkfsdfs
+    - sdfjkldjsfs
+    - dfsljdksf
+  {row}
+    - Abcd
+    - DEF
+    - KJLKDJ
+
+{dict}
+  Abcd
+    dsfskfjskdfjsfls
+
+{collapse} [title=sdfda adsfsf asdf asf] [state=off]
+  My embedded text
+
+{code} [language=c++] [show-line-numbers]
+  {file} [path=asdfasf.yaml]
+  
+{image} []
+  {file} [path=sdfasfa]
+
+In line code works like this `inline code`. And links like in Markdown [name](target).
+
+What is missing for me in other language is coloring text. I would like this text to be in <#dfddsdf>red and more than one work</>.
+
+{model} [id=SWREGSDFDS]
+
+{model} 

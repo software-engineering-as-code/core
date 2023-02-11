@@ -1,0 +1,6 @@
+TEST-SW-001:
+  satisfies: SW-REQ
+  specifiction: sfadf
+  description: sfdasfd
+  type: sdfaf
+  state: new

@@ -1,0 +1,5 @@
+RM-SWE-ABC:
+  depends-on: RM-SWE-DE-001
+  duration: 12
+  workforce: 2
+  team: abc

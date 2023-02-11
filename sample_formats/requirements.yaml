@@ -1,0 +1,8 @@
+REQ-SW-ABCE-CDE-001:
+  contained_in: REQ-SW-ABCE-CDE-002
+  context: Context
+  derived_from: REQ-SW-ABCD-DDD-003
+  description: Some description
+  requirement: The MPLog library shall
+  source: stakeholder
+  state: new
