@@ -14,8 +14,23 @@
 
 import typed_argparse as tap
 
-from swe_as_code.lib.doit import doit
+from pathlib import Path
 
+class InitArgs(tap.TypedArgs):
+    root_dir: Path = tap.arg(help="The directory to initialize.")
+
+def initialize_workspace(args: InitArgs) -> None:
+    print("Initialize")
 
 def main() -> None:
-    print(f"SWE: {doit(10)}")
+    tap.Parser(
+        tap.SubParserGroup(
+            tap.SubParser(
+                "init",
+                InitArgs,
+                help="Initialize a new workspace."
+            ),
+        )
+    ).bind(
+        initialize_workspace,
+    ).run()
