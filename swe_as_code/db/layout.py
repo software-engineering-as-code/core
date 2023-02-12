@@ -14,7 +14,7 @@
 
 from pathlib import Path
 
-from swe_as_code.db.model import DatabaseConfig, Requirements
+from swe_as_code.db.model import DatabaseConfig, Requirements, RequirementData, RequirementSource, RequirementState
 from swe_as_code.db.utils import write_yaml
 
 DATABASE_VERSION = 1
@@ -42,9 +42,8 @@ def _create_requirements(workspace_dir: Path) -> None:
     requirements_dir.mkdir(parents=True, exist_ok=True)
 
     requirements_file_main = requirements_dir / "main.yaml"
-    main_requirements = Requirements(__root__=dict())
-    print(main_requirements)
-    write_yaml(requirements_file_main, main_requirements)
+    main_requirements = Requirements(requirements={"a": RequirementData(component="comp", source=RequirementSource.Stakeholder, state=RequirementState.New, description="", requirement="abc", contained_in=[], derived_from=[])})
+    write_yaml(requirements_file_main, main_requirements.dict())
 
 def setup_database(workspace_dir: Path) -> None:
     workspace_dir.mkdir(parents=True, exist_ok=True)

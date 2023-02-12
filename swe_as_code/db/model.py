@@ -47,4 +47,4 @@ class RequirementData(BaseModel):
 
 
 class Requirements(BaseModel):
-    __root__: Dict[EntityId, RequirementData]
+    requirements: Dict[EntityId, RequirementData]
