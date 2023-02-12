@@ -12,23 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from swe_as_code.db.layout import setup_database
+from pathlib import Path
+from typing import Any, Dict
 
-from ._args import BuildArgs, CheckArgs, FormatArgs, InitArgs
-
-
-def initialize_workspace(args: InitArgs) -> None:
-    print(f"Initialize software engineering database in: {args.workspace_dir}")
-    setup_database(args.workspace_dir)
+from ruamel.yaml import YAML
 
 
-def build_workspace(args: BuildArgs) -> None:
-    ...
-
-
-def check_workspace(args: CheckArgs) -> None:
-    ...
-
-
-def format_workspace(args: FormatArgs) -> None:
-    ...
+def write_yaml(filename: Path, data: Dict[str, Any]) -> str:
+    yaml = YAML()
+    yaml.default_flow_style = False
+    with filename.open("w") as stream:
+        yaml.dump(data, stream)

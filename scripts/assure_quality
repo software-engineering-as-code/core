@@ -17,14 +17,11 @@
 OPERATION="Apply"
 CHECK_OPT_BLACK=""
 CHECK_OPT_ISORT=""
-do_check=0
 
-echo $1
-if [ "$#" -eq 1 ] && [ "$1" == "--check-only" ]; then
+if [ "$#" -ge 1 ] && [ "$1" == "--check-only" ]; then
     OPERATION="Lint"
     CHECK_OPT_BLACK="--check"
     CHECK_OPT_ISORT="--check"
-    do_check=1
 fi
 
 ROOT_DIR=$(dirname $(dirname ${BASH_SOURCE}))

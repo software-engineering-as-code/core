@@ -6,7 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "swe_as_code"
 version = "0.0.1"
 dependencies = [
-    "typed_argparse",
+  "pydantic",
+  "ruamel.yaml",
+  "typed_argparse",
 ]
 
 [project.optional-dependencies]
